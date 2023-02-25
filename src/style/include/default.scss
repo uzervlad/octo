@@ -1,0 +1,122 @@
+@import './colors.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600&display=swap');
+
+@mixin mobile() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media screen and (min-width: 1000px) {
+    @content;
+  }
+}
+
+* {
+  font-family: 'Baloo Bhai 2';
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: $background;
+
+  overflow: overlay;
+
+  &::-webkit-scrollbar {
+    width: .6em;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: lighten($background, 10%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: lighten($background, 30%);
+    margin: 2px;
+    
+    border: lighten($background, 10%) solid 2px;
+    border-radius: 20px;
+  }
+}
+
+h1 {
+  font-size: 120px;
+  
+  color: white;
+  text-shadow: 0px 0px 20px #7A5EA1;
+}
+
+.sub {
+  font-size: 40px;
+
+  color: $text;
+  opacity: 35%;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url(/static/images/ninomae_inanis.jpg);
+  background-position: 65% center;
+  background-size: cover;
+
+  mix-blend-mode: overlay;
+
+  opacity: 50%;
+
+  z-index: -1;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: end;
+  }
+
+  a {
+    padding: 20px;
+    @include mobile {
+      padding: 8px 14px;
+    }
+
+    font-size: 22px;
+    @include mobile {
+      font-size: 19px;
+    }
+    color: darken($text, 10%);
+
+    transition: color ease .3s;
+
+    &:hover {
+      color: $text;
+    }    
+  }
+}
+
+.credit {
+  display: flex;
+  flex-direction: column-reverse;
+
+  position: fixed;
+  bottom: 4px;
+  right: 16px;
+
+  color: #fff3;
+}

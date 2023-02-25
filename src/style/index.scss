@@ -1,0 +1,91 @@
+@import './include/default.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600&display=swap');
+
+:root {
+  --youtube: #ff0000;
+  --twitch: #a970ff;
+  --vk: #0077ff;
+  --github: #2d333b;
+}
+
+.links {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+
+  @include mobile {
+    top: 20px;
+    left: 10px;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    margin-bottom: 10px;
+
+    a {
+      width: 72px;
+
+      i {
+        font-size: var(--size, 60px);
+        color: $text;
+      }
+
+      .highlight {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: var(--highlight);
+
+        clip-path: circle(0% at 50% 50%);
+
+        transition: clip-path ease .7s;
+      }
+
+      &:hover .highlight {
+        clip-path: circle(100% at 50% 50%);
+      }
+
+      &:hover + span {
+        -webkit-mask-position: left;
+                mask-position: left;
+      }
+    }
+
+    span {
+      color: white;
+      font-size: 26px;
+
+      transition: all ease .6s;
+
+      -webkit-mask-position: right;
+              mask-position: right;
+      -webkit-mask-image: linear-gradient(to right, #fff8 0%, #fff8 40%, transparent 60%, transparent 100%);
+              mask-image: linear-gradient(to right, #fff8 0%, #fff8 40%, transparent 60%, transparent 100%);
+      -webkit-mask-size: 300% 100%;
+              mask-size: 300% 100%;
+      -webkit-mask-mode: alpha;
+              mask-mode: alpha;
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  flex-direction: column;
+
+  user-select: none;
+
+  h1 {
+    margin: -50px 0px;
+  }
+}
