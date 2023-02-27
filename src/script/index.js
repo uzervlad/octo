@@ -23,7 +23,7 @@ const LINKS = [
     color: '#ff0000',
     icon: 'youtube',
     name: "YouTube",
-    link: 'https://www.youtube.com/channel/UC9TyHiTiHHlsnG73ji13wdg',
+    link: 'https://www.youtube.com/@octopussx',
     size: 55,
   },
   {
